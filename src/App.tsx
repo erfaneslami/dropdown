@@ -1,25 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import CDropDown from './Components/CDropDown/CDropDown';
 
 function App() {
+  const options = ['1051', '6565', '5485'];
+
+  const [value, setValue] = useState<string | number | null>(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <CDropDown
+        prompt="لیست نمایندگی ها"
+        searchPlaceholder="جستجو..."
+        options={options}
+        value={value}
+        onChange={(value) => setValue(value)}
+      />
+    </>
   );
 }
 
